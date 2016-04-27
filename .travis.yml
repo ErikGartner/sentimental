@@ -1,0 +1,19 @@
+# This file is part of sentimental.
+# https://github.com/ErikGartner/sentimental
+
+# Licensed under the - license:
+# http://www.opensource.org/licenses/--license
+# Copyright (c) 2016, Erik Gärtner <erik@gartner.io>
+
+language: python
+
+python:
+    - "3.4"
+    - "3.5"
+
+install:
+    # install python requirements
+    - pip install -U
+
+script:
+    # run tests
