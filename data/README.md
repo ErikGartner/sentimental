@@ -5,6 +5,12 @@ negative_examples.txt
 positive_examples.txt
 neutral_examples.txt
 README.md
-LICENCE.md
+LICENSE.md
 model.pickle
+```
+
+The folder *may* also contain:
+```
+scripts/
+corpus.txt
 ```

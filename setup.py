@@ -48,6 +48,7 @@ A sentiment analyzer
     include_package_data=False,
     install_requires=[
         'numpy',
+        'scipy',
         'scikit-learn'
     ],
     extras_require={
