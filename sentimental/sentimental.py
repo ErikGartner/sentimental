@@ -27,8 +27,8 @@ class Sentimental:
         x_input = []
         y_target = []
         for folder in corpus_folders:
-            for i in range(len(SentimentModel.LABELS)):
-                label = SentimentModel.LABELS[i]
+            for i in range(len(Sentimental.LABELS)):
+                label = Sentimental.LABELS[i]
                 data_file = '%s/%s_examples.txt' % (folder, label)
                 with open(data_file, 'r') as f:
                     read_data = f.readlines()
@@ -44,8 +44,8 @@ class Sentimental:
         x = self.vectorizer.transform([text])
         probabilities = self.predictor.predict_proba(x)[0]
         res = {}
-        for i in range(len(SentimentModel.LABELS)):
-            res[SentimentModel.LABELS[i]] = probabilities[i]
+        for i in range(len(Sentimental.LABELS)):
+            res[Sentimental.LABELS[i]] = probabilities[i]
         return res
 
     def save(self, output_file):
