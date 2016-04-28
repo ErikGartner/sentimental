@@ -1,3 +1,5 @@
+import os
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
@@ -50,8 +52,9 @@ class Sentimental:
 
     def save(self, output_file):
         raise Exception('Not yet implemented!')
-        pass
 
     def load(self, pickel_file=None):
         raise Exception('Not yet implemented!')
-        pass
+
+    def get_datafolder():
+        return os.path.dirname(__file__) + '/data'

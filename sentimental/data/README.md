@@ -1,15 +1,13 @@
-# Data folder
-This folder contains corpuses and trained models. Each sub folder should contain:
-```
-negative_examples.txt
-positive_examples.txt
-README.md
-LICENSE.txt
-```
+# Data
+This folder contains corpora and trained models. Each subfolder should contain:
+
+- `negative_examples.txt`
+- `positive_examples.txt`
+- `README.md`
+- `LICENSE.txt`
 
 The folder *may* also contain:
-```
-scripts/
-corpus.txt
-model.pickle
-```
+
+- `scripts/` - scripts for downloading/updating the data
+- `corpus.txt` - the source document if applicable
+- `model.pickle` - a pre-trained model
