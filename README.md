@@ -21,7 +21,7 @@ pip install git+https://github.com/ErikGartner/sentimental.git
 ```
 
 ## Contributions
-Please feel free to make pull request, especially to add more training data.
+Please feel free to make pull requests, especially to add more training data.
 
 ## License
 Copyright Erik Gärtner 2016
