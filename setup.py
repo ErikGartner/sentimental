@@ -30,7 +30,7 @@ setup(
     long_description='''
 A sentiment analyzer
 ''',
-    keywords='sentiment analyses',
+    keywords='sentiment',
     author='Erik Gärtner',
     author_email='erik@gartner.io',
     url='https://github.com/ErikGartner/sentimental',
@@ -42,14 +42,15 @@ A sentiment analyzer
         'Natural Language :: English',
         'Operating System :: Unix',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Operating System :: OS Independent',
     ],
     packages=find_packages(),
     include_package_data=False,
     install_requires=[
-        'numpy',
-        'scipy',
-        'scikit-learn'
+        'numpy>=1.11.0',
+        'scipy>=0.17.0',
+        'scikit-learn>=0.17.1'
     ],
     extras_require={
         'tests': tests_require,
