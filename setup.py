@@ -45,7 +45,7 @@ A sentiment analyzer
         'Programming Language :: Python :: 3.5',
         'Operating System :: OS Independent',
     ],
-    packages=find_packages(),
+    packages=find_packages('sentimental'),
     include_package_data=True,
     install_requires=[
         'numpy>=1.11.0',
