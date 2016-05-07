@@ -1,12 +1,11 @@
 import os
+import pickle
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
 
 class Sentimental:
-
-    LABELS = ['negative', 'positive']
 
     def __init__(self,
                  max_ngrams=1,
@@ -17,6 +16,7 @@ class Sentimental:
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
+        self.labels = ['negative', 'positive']
 
     def train(self, corpus_folders):
         self.vectorizer = TfidfVectorizer(analyzer='word',
@@ -29,8 +29,8 @@ class Sentimental:
         x_input = []
         y_target = []
         for folder in corpus_folders:
-            for i in range(len(Sentimental.LABELS)):
-                label = Sentimental.LABELS[i]
+            for i in range(len(self.labels)):
+                label = self.labels[i]
                 data_file = '%s/%s_examples.txt' % (folder, label)
                 with open(data_file, 'r') as f:
                     read_data = f.readlines()
@@ -46,15 +46,17 @@ class Sentimental:
         x = self.vectorizer.transform([text])
         probabilities = self.predictor.predict_proba(x)[0]
         res = {}
-        for i in range(len(Sentimental.LABELS)):
-            res[Sentimental.LABELS[i]] = probabilities[i]
+        for i in range(len(self.labels)):
+            res[self.labels[i]] = probabilities[i]
         return res
 
     def save(self, output_file):
-        raise Exception('Not yet implemented!')
+        with open(output_file, 'wb') as f:
+            pickle.dump(self, f)
 
-    def load(self, pickel_file=None):
-        raise Exception('Not yet implemented!')
+    def load(pickel_file):
+        with open(pickel_file, 'rb') as f:
+            return pickle.load(f)
 
     def get_datafolder():
         return os.path.dirname(__file__) + '/data'
