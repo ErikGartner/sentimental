@@ -27,9 +27,10 @@ setup(
     name='sentimental',
     version=__version__,
     description='A sentiment analyzer',
-    long_description='''
-A sentiment analyzer
-''',
+    long_description=
+    '''Sentiment analysis made easy; built on top off solid libraries.
+
+Sentimental uses Scikit-learn to perform easy sentiment analysis. The idea is to create a simple out-of-box solution that yields acceptable results without complex configuration. Sentimental also uses a simple format for its training corpora that makes it easy to add more training data.''',
     keywords='sentiment',
     author='Erik Gärtner',
     author_email='erik@gartner.io',
@@ -61,5 +62,4 @@ A sentiment analyzer
             # add cli scripts here in this form:
             # 'sentimental=sentimental.cli:main',
         ],
-    },
-)
+    }, )

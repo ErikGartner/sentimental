@@ -6,7 +6,6 @@ import ahocorasick
 
 
 class ExampleExtractor:
-
     def __init__(self):
         self.indicators = {}
 
@@ -20,7 +19,8 @@ class ExampleExtractor:
         with open(corpus_file, 'r') as f:
             text = f.read()
         text = re.sub(r'\s', ' ', text)
-        sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)
+        sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s',
+                             text)
 
         labeled = {l: [] for l in self.indicators}
 
