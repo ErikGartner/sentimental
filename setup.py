@@ -31,15 +31,16 @@ setup(
     '''Sentiment analysis made easy; built on top off solid libraries.
 
 Sentimental uses Scikit-learn to perform easy sentiment analysis. The idea is to create a simple out-of-box solution that yields acceptable results without complex configuration. Sentimental also uses a simple format for its training corpora that makes it easy to add more training data.''',
-    keywords='sentiment',
+    keywords=['sentiment analysis', 'sentiment', 'nlp'],
     author='Erik Gärtner',
     author_email='erik@gartner.io',
     url='https://github.com/ErikGartner/sentimental',
-    license='-',
+    download_url='https://github.com/ErikGartner/sentimental/archive/' +
+    __version__ + '.tar.gz',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: - License',
+        'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         'Operating System :: Unix',
         'Programming Language :: Python :: 3.4',
