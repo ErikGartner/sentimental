@@ -2,7 +2,6 @@ import os
 import re
 from collections import Counter
 
-from nltk.tokenize import sent_tokenize, word_tokenize
 import ahocorasick
 
 
@@ -25,7 +24,6 @@ class ExampleExtractor:
 
         labeled = {l: [] for l in self.indicators}
 
-        # Build Aho–Corasick automaton for quick string search
         automaton = ahocorasick.Automaton()
         for label in self.indicators:
             for indi in self.indicators[label]:
@@ -45,8 +43,3 @@ class ExampleExtractor:
         for label in labeled:
             with open('%s/%s_examples.txt' % (output_dir, label), 'w') as f:
                 f.write('\n'.join(labeled[label]))
-
-e = ExampleExtractor()
-e.load_labeled_words('data/sv/lexicon/positive_examples.txt', 'positive')
-e.load_labeled_words('data/sv/lexicon/negative_examples.txt', 'negative')
-e.extract_examples('ruhburg.txt', 'data/sv/_ruhburg')
