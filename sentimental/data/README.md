@@ -19,12 +19,15 @@ The folder *may* also contain:
 If your corpus doesn't have labeled example sentences they can be generated pretty easily if you have lexicons of negative and positive words/phrases.
 
 1. Use a lexicon of positive and negative words (can be found in `<lang>/lexicon` for some languages).
-2. Use `example_extractor.py` to extract sentences that contain these words. See example below:
-    ```python
+2. Use `example_extractor.py` to extract sentences that contain these words. See example below.
+3. Train sentimental on the extracted sentences.
+4. Using the trained model you can now classify the rest of the sentences.
+
+### Example
+
+```python
 e = ExampleExtractor()
 e.load_labeled_words('data/sv/lexicon/positive_examples.txt', 'positive')
 e.load_labeled_words('data/sv/lexicon/negative_examples.txt', 'negative')
 e.extract_examples('data/sv/_newcorpus/corpus.txt', 'data/sv/_newcorpus')
-  ```
-3. Train sentimental on the extracted sentences.
-4. Using the trained model you can now classify the rest of the sentences.
+```
