@@ -8,4 +8,4 @@
 # http://www.opensource.org/licenses/--license
 # Copyright (c) 2016, Erik Gärtner <erik@gartner.io>
 
-__version__ = '1.0.0'  # NOQA
+__version__ = '1.1.0'  # NOQA

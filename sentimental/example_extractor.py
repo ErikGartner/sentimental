@@ -18,8 +18,8 @@ class ExampleExtractor:
     def extract_examples(self, corpus_file, output_dir, cutoff=2):
         with open(corpus_file, 'r') as f:
             text = f.read()
-        text = re.sub(r'\s', ' ', text)
-        sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s',
+        text = re.sub(r'\s+', ' ', text, flags=re.UNICODE)
+        sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s',
                              text)
 
         labeled = {l: [] for l in self.indicators}
@@ -27,19 +27,29 @@ class ExampleExtractor:
         automaton = ahocorasick.Automaton()
         for label in self.indicators:
             for indi in self.indicators[label]:
-                automaton.add_word(indi, label)
+                automaton.add_word(indi, (label, indi))
         automaton.make_automaton()
 
         for sentence in sentences:
-            sentence = sentence.strip()
-            c = Counter([label for (pos, label) in automaton.iter(sentence)])
+            sent = sentence.strip().lower()
+            matches = [label
+                       for (pos, (label, indi)) in automaton.iter(sent)
+                       if self._validate_match(sent, pos, indi)]
+            c = Counter(matches)
 
             common = c.most_common(2)
             if len(common) >= 2 and common[0][1] - common[1][1] >= cutoff:
-                labeled[common[0][0]].append(sentence)
+                labeled[common[0][0]].append(sentence.strip())
             elif len(common) == 1 and common[0][1] >= cutoff:
-                labeled[common[0][0]].append(sentence)
+                labeled[common[0][0]].append(sentence.strip())
 
         for label in labeled:
             with open('%s/%s_examples.txt' % (output_dir, label), 'w') as f:
                 f.write('\n'.join(labeled[label]))
+
+    def _validate_match(self, sentence, pos, indi):
+        end = pos + 2
+        start = max(0, pos - len(indi))
+        return re.search(r'\b%s\b' % indi,
+                         sentence[start:end],
+                         flags=re.UNICODE) is not None
