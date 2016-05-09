@@ -34,7 +34,7 @@ sentimental2 = Sentimental.load('model.pickle')
 ## Data
 A sentimental analyzer is only as good as its data. Sentimental comes with some pre-trained models and data but the format is very simple and it is easy to use your own data.
 
-For details the readme in the ``data`` folder.
+For details the readme in the [data](https://github.com/ErikGartner/sentimental/tree/master/sentimental/data) folder.
 
 If you have good data, either lexicons of polarity words or example sentences, feel free to make a pull request.
 
