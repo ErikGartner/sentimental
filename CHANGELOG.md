@@ -1,5 +1,9 @@
-<a name=""></a>
-# [](https://github.com/ErikGartner/sentimental/compare/1.0.0...v) (2016-05-07)
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/ErikGartner/sentimental/compare/1.0.0...1.1.0) (2016-05-09)
+
+### Bug Fixes
+
+* Bugs in ExampelExtractor #3([96140b9](https://github.com/ErikGartner/sentimental/commit/96140b9))
 
 
 
@@ -82,6 +86,3 @@
 * Add gitignore to corpuses([c19fe7c](https://github.com/ErikGartner/sentimental/commit/c19fe7c))
 * Removed neutral label([53b3ef5](https://github.com/ErikGartner/sentimental/commit/53b3ef5))
 * Restructure([451a99d](https://github.com/ErikGartner/sentimental/commit/451a99d))
-
-
-
