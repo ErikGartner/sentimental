@@ -1,7 +1,7 @@
 # Sentimental
 *Sentiment analysis made easy; built on top off solid libraries.*
 
-[![PyPI](https://img.shields.io/pypi/v/sentimental.svg?maxAge=2592000)](https://pypi.python.org/pypi/sentimental/1.0.0)
+[![PyPI](https://img.shields.io/pypi/v/sentimental.svg)](https://pypi.python.org/pypi/sentimental)
 
 Sentimental uses *Scikit-learn* to perform easy sentiment analysis. The idea is to create a simple out-of-box solution that yields acceptable results without complex configuration. Sentimental also uses a simple format for its training corpora that makes it easy to add more training data.
 
