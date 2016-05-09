@@ -32,7 +32,7 @@ sentimental2 = Sentimental.load('model.pickle')
 ```
 
 ## Data
-A sentimental analyzer is only as good as its data. Sentimental comes with some pre-trained models and data but the format is very simple and it is easy to use your own data.
+A sentimental analyzer is only as good as its data. Sentimental comes with some data and pre-trained models. As a bonus the format is very simple and it is easy to train the model on your own data.
 
 For details the readme in the [data](https://github.com/ErikGartner/sentimental/tree/master/sentimental/data) folder.
 
