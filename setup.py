@@ -38,7 +38,7 @@ Sentimental uses Scikit-learn to perform easy sentiment analysis. The idea is to
     download_url='https://github.com/ErikGartner/sentimental/archive/' +
     __version__ + '.tar.gz',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
