@@ -5,6 +5,8 @@
 
 Sentimental uses *Scikit-learn* to perform easy sentiment analysis. The idea is to create a simple out-of-box solution that yields acceptable results without complex configuration. Sentimental also uses a simple format for its training corpora that makes it easy to add more training data.
 
+Sentimental labels a sentence either: positive, neutral or negative together with the probability.
+
 Take a look at `sentimental/data` for the included training corpora.
 
 ## Usage

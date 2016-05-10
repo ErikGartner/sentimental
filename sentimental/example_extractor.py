@@ -7,7 +7,7 @@ import ahocorasick
 
 class ExampleExtractor:
     def __init__(self):
-        self.indicators = {}
+        self.indicators = {'neutral': []}
 
     def load_labeled_words(self, word_file, label):
         word_set = self.indicators.get(label, set())
@@ -42,6 +42,8 @@ class ExampleExtractor:
                 labeled[common[0][0]].append(sentence.strip())
             elif len(common) == 1 and common[0][1] >= cutoff:
                 labeled[common[0][0]].append(sentence.strip())
+            elif len(common) == 0 or common[0][1] < cutoff:
+                labeled['neutral'].append(sentence.strip())
 
         for label in labeled:
             with open('%s/%s_examples.txt' % (output_dir, label), 'w') as f:
