@@ -1,5 +1,16 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/ErikGartner/sentimental/compare/1.1.0...2.0.0) (2016-05-10)
+
+
+### Features
+
+* Add neutral label #4([ceabc99](https://github.com/ErikGartner/sentimental/commit/ceabc99))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ErikGartner/sentimental/compare/1.0.0...1.1.0) (2016-05-09)
+
 
 ### Bug Fixes
 
