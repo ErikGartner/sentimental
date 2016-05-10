@@ -3,10 +3,10 @@ import pickle
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn import cross_validation
 
 
 class Sentimental:
-
     def __init__(self,
                  max_ngrams=1,
                  min_df=0.0,
@@ -16,7 +16,7 @@ class Sentimental:
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
-        self.labels = ['negative', 'positive']
+        self.labels = ['negative', 'neutral', 'positive']
 
     def train(self, corpus_folders):
         self.vectorizer = TfidfVectorizer(analyzer='word',
@@ -39,7 +39,13 @@ class Sentimental:
 
         x_train = self.vectorizer.fit_transform(x_input)
 
-        self.predictor = LogisticRegression()
+        self.predictor = LogisticRegression(solver='lbfgs',
+                                            multi_class='multinomial',
+                                            n_jobs=-1)
+        self.scores = cross_validation.cross_val_score(self.predictor,
+                                                       x_train,
+                                                       y_target,
+                                                       cv=5)
         self.predictor.fit(x_train, y_target)
 
     def sentiment(self, text):
@@ -49,6 +55,9 @@ class Sentimental:
         for i in range(len(self.labels)):
             res[self.labels[i]] = probabilities[i]
         return res
+
+    def accuracy(self):
+        return {'mean': self.scores.mean(), 'std': self.scores.std() * 2}
 
     def save(self, output_file):
         with open(output_file, 'wb') as f:
