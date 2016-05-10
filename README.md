@@ -16,18 +16,31 @@ pip install sentimental
 ```
 
 ### Examples
-Training a model from example sentences:
+Below are some simple examples that covers most functions and use cases.
 
+#### Extracting example sentences from a corpus
+Using lists of negative and positive words Sentimental can extract files containing positive, neutral and negative sentences.
+```python
+e = ExampleExtractor()
+e.load_labeled_words('data/sv/lexicon/positive_examples.txt', 'positive')
+e.load_labeled_words('data/sv/lexicon/negative_examples.txt', 'negative')
+e.extract_examples('data/sv/_newcorpus/corpus.txt', 'data/sv/_newcorpus')
+```
+
+
+#### Training a model from example sentences
+Once you have a lists of positive, negative and neutral sentences you can train the Sentimental model on them to make prediction on other sentences.
 ```python
 from sentimental import Sentimental
 
 sentimental = Sentimental()
-sentimental.train([Sentimental.get_datafolder() + '/sv/lexicon'])
-sentimental.sentiment('Erik är jätteglad över det vackra vädret.')
+sentimental.train(['path/to/a/data_folder'])
+sentimental.sentiment('Erik is very happy about the nice weather')
+>>> {'negative': 0.012843021692660004, 'positive': 0.97922132069306, 'neutral': 0.0079356576142799052}
 ```
 
-Saving and loading a pre-trained model:
-
+#### Saving and loading a pre-trained model:
+Training a model and performing crossvalidation can take some time on large datasets. To save time, one a model has been trained it can be saved and later loaded.
 ```python
 sentimental.save('model.pickle')
 sentimental2 = Sentimental.load('model.pickle')
