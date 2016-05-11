@@ -27,7 +27,6 @@ e.load_labeled_words('data/sv/lexicon/negative_examples.txt', 'negative')
 e.extract_examples('data/sv/_newcorpus/corpus.txt', 'data/sv/_newcorpus')
 ```
 
-
 #### Training a model from example sentences
 Once you have a lists of positive, negative and neutral sentences you can train the Sentimental model on them to make prediction on other sentences.
 ```python
@@ -40,10 +39,25 @@ sentimental.sentiment('Erik is very happy about the nice weather')
 ```
 
 #### Saving and loading a pre-trained model:
-Training a model and performing crossvalidation can take some time on large datasets. To save time, one a model has been trained it can be saved and later loaded.
+Training a model and performing cross-validation can take some time on large datasets. To save time, one a model has been trained it can be saved and later loaded.
+
 ```python
 sentimental.save('model.pickle')
 sentimental2 = Sentimental.load('model.pickle')
+```
+
+#### Evaluating the predictor
+There are two ways to evaluate Sentimental. The first is by looking at the cross-validation scores:
+
+```python
+sentimental.accuracy()
+```
+
+The second is to perform validation on an external test set:
+```python
+sentimental.validate('path/to/validation_files/positive.txt', 'positive')
+sentimental.validate('path/to/validation_files/negative.txt', 'negative')
+sentimental.validate('path/to/validation_files/neutral.txt', 'neutral')
 ```
 
 ## Data
