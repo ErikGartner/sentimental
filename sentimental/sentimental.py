@@ -72,10 +72,11 @@ class Sentimental:
 
     def validate(self, validation_file, expected_label):
         with open(validation_file, 'r') as f:
-            x_validate = f.readlines()
-            y_target = [expected_label] * len(x_validate)
-        return cross_validation.cross_val_score(self.predictor, x_validate,
-                                                y_target)
+            x_data = f.readlines()
+        y_target = [self.labels.index(expected_label)] * len(x_data)
+        x_validate = self.vectorizer.transform(x_data)
+        y_result = self.predictor.predict(x_validate)
+        return accuracy_score(y_target, y_result)
 
     def save(self, output_file):
         with open(output_file, 'wb') as f:
