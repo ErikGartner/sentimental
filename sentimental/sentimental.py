@@ -42,7 +42,8 @@ class Sentimental:
 
         self.predictor = LogisticRegression(solver='lbfgs',
                                             multi_class='multinomial',
-                                            n_jobs=-1)
+                                            n_jobs=-1,
+                                            class_weight='balanced')
         self.scores = cross_validation.cross_val_score(self.predictor,
                                                        x_train,
                                                        y_target,
