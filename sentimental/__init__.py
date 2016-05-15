@@ -14,5 +14,5 @@ from sentimental.sentimental import Sentimental
 from sentimental.example_extractor import ExampleExtractor
 
 
-def get_datafolder():
+def get_data_path():
     return os.path.dirname(__file__) + '/data'

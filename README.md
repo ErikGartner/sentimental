@@ -21,10 +21,12 @@ Below are some simple examples that covers most functions and use cases.
 #### Extracting example sentences from a corpus
 Using lists of negative and positive words Sentimental can extract files containing positive, neutral and negative sentences.
 ```python
+from sentimental import ExampleExtractor, get_data_path
+
 e = ExampleExtractor()
-e.load_labeled_words('data/sv/lexicon/positive_examples.txt', 'positive')
-e.load_labeled_words('data/sv/lexicon/negative_examples.txt', 'negative')
-e.extract_examples('data/sv/_newcorpus/corpus.txt', 'data/sv/_newcorpus')
+e.load_labeled_words(get_data_path() + '/sv/lexicon/positive_examples.txt', 'positive')
+e.load_labeled_words(get_data_path() + '/sv/lexicon/negative_examples.txt', 'negative')
+e.extract_examples(get_data_path() + '/sv/_newcorpus/corpus.txt', 'data/sv/_newcorpus')
 ```
 
 #### Training a model from example sentences
