@@ -79,6 +79,3 @@ class Sentimental:
     def load(pickel_file):
         with open(pickel_file, 'rb') as f:
             return pickle.load(f)
-
-    def get_datafolder():
-        return os.path.dirname(__file__) + '/data'
