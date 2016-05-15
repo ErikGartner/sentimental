@@ -9,23 +9,26 @@ from sklearn.metrics import accuracy_score
 
 class Sentimental:
     def __init__(self,
-                 max_ngrams=1,
+                 min_ngrams=1,
+                 max_ngrams=2,
                  min_df=0.0,
                  max_df=1.0,
                  max_features=None):
-        self.n_grams = max_ngrams
+        self.min_ngrams = min_ngrams
+        self.max_ngrams = max_ngrams
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
         self.labels = ['negative', 'neutral', 'positive']
 
     def train(self, corpus_folders):
-        self.vectorizer = TfidfVectorizer(analyzer='word',
-                                          ngram_range=(1, self.n_grams),
-                                          max_df=self.max_df,
-                                          min_df=self.min_df,
-                                          max_features=self.max_features,
-                                          decode_error='replace')
+        self.vectorizer = TfidfVectorizer(
+            analyzer='word',
+            ngram_range=(self.min_ngrams, self.max_ngrams),
+            max_df=self.max_df,
+            min_df=self.min_df,
+            max_features=self.max_features,
+            decode_error='replace')
 
         x_input = []
         y_target = []
