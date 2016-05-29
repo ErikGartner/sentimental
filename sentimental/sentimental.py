@@ -21,6 +21,7 @@ class Sentimental:
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
+        self.undersample = undersample
         self.labels = ['negative', 'neutral', 'positive']
 
     def train(self, corpus_folders):
