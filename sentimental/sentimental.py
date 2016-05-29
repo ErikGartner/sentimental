@@ -1,5 +1,6 @@
 import os
 import pickle
+from collections import Counter
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -13,7 +14,8 @@ class Sentimental:
                  max_ngrams=2,
                  min_df=0.0,
                  max_df=1.0,
-                 max_features=None):
+                 max_features=None,
+                 undersample=False):
         self.min_ngrams = min_ngrams
         self.max_ngrams = max_ngrams
         self.max_df = max_df
@@ -40,6 +42,9 @@ class Sentimental:
                     read_data = f.readlines()
                     x_input.extend(read_data)
                     y_target.extend([i] * len(read_data))
+
+        if self.undersample:
+            (x_input, y_target) = Sentimental._undersample(x_input, y_target)
 
         x_train = self.vectorizer.fit_transform(x_input)
 
@@ -79,3 +84,16 @@ class Sentimental:
     def load(pickel_file):
         with open(pickel_file, 'rb') as f:
             return pickle.load(f)
+
+    def _undersample(x_data, y_data):
+        sample_sizes = Counter(y_data)
+        new_size = sample_sizes.most_common()[-1][1]
+        found = {}
+        for i in range(len(y_data)):
+            found[y_data[i]] = found.get(y_data[i], 0) + 1
+            if found[y_data[i]] > new_size:
+                x_data[i] = None
+                y_data[i] = None
+        x_data = list(filter(lambda x: x is not None, x_data))
+        y_data = list(filter(lambda x: x is not None, y_data))
+        return (x_data, y_data)
