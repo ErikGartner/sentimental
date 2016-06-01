@@ -7,10 +7,10 @@ Sentimental uses *Scikit-learn* to perform easy sentiment analysis. The idea is 
 
 Sentimental labels a sentence either: positive, neutral or negative together with the probability.
 
-Take a look at `sentimental/data` for the included training corpora.
+Take a look at [sentimental/data](./sentimental/data) for the included training corpora.
 
 ## Usage
-Sentimental is released as a python package. For now install using:
+Sentimental is released as a python package, just run:
 ```bash
 pip install sentimental
 ```
@@ -65,7 +65,7 @@ sentimental.validate('path/to/validation_files/neutral.txt', 'neutral')
 ## Data
 A sentimental analyzer is only as good as its data. Sentimental comes with some data and pre-trained models. As a bonus the format is very simple and it is easy to train the model on your own data.
 
-For details the readme in the [data](https://github.com/ErikGartner/sentimental/tree/master/sentimental/data) folder.
+For details see the [readme](./sentimental/data/README.md) in the data folder.
 
 If you have good data, either lexicons of polarity words or example sentences, feel free to make a pull request.
 
