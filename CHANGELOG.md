@@ -1,10 +1,29 @@
-<a name="2.0.0"></a>
-# [2.0.0](https://github.com/ErikGartner/sentimental/compare/1.1.0...2.0.0) (2016-05-10)
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/ErikGartner/sentimental/compare/2.1.0...2.2.0) (2016-05-11)
+
+### Bug Fixes
+
+* Bug([12607c5](https://github.com/ErikGartner/sentimental/commit/12607c5))
 
 
 ### Features
 
-* Add neutral label #4([ceabc99](https://github.com/ErikGartner/sentimental/commit/ceabc99))
+* Add balancing for unbalanced traning sets.([0a5e2e1](https://github.com/ErikGartner/sentimental/commit/0a5e2e1))
+* Add min_ngrams parameter.([1f4fe46](https://github.com/ErikGartner/sentimental/commit/1f4fe46))
+* Add undersampling support #6([e1813ce](https://github.com/ErikGartner/sentimental/commit/e1813ce))
+* Moved get_datafolder() to __init__.py([880b011](https://github.com/ErikGartner/sentimental/commit/880b011))
+* Renamed get_datafolder to get_data_path([2f52b70](https://github.com/ErikGartner/sentimental/commit/2f52b70))
+
+
+
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/ErikGartner/sentimental/compare/1.1.0...2.1.0) (2016-05-11)
+
+
+### Features
+
+* Add external validation #5([e3c9003](https://github.com/ErikGartner/sentimental/commit/e3c9003))
+* Add neutral label #4([0efe20c](https://github.com/ErikGartner/sentimental/commit/0efe20c))
 
 
 
