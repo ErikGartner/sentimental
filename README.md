@@ -19,7 +19,7 @@ pip install sentimental
 Below are some simple examples that covers most functions and use cases.
 
 #### Extracting example sentences from a corpus
-Using lists of negative and positive words Sentimental can extract files containing positive, neutral and negative sentences.
+Using lists of negative and positive words Sentimental can extract sentences containing positive, neutral and negative keywords.
 ```python
 from sentimental import ExampleExtractor, get_data_path
 
@@ -35,13 +35,13 @@ Once you have a lists of positive, negative and neutral sentences you can train 
 from sentimental import Sentimental
 
 sentimental = Sentimental()
-sentimental.train(['path/to/a/data_folder'])
+sentimental.train(['path/to/a/data_folder', 'path/to/more/data'])
 sentimental.sentiment('Erik is very happy about the nice weather')
 >>> {'negative': 0.012843021692660004, 'positive': 0.97922132069306, 'neutral': 0.0079356576142799052}
 ```
 
 #### Saving and loading a pre-trained model:
-Training a model and performing cross-validation can take some time on large datasets. To save time, one a model has been trained it can be saved and later loaded.
+Training a model and performing cross-validation can take some time on large datasets. To save time, once a model has been trained it can be saved and later loaded.
 
 ```python
 sentimental.save('model.pickle')
@@ -70,7 +70,7 @@ For details see the [readme](./sentimental/data/README.md) in the data folder.
 If you have good data, either lexicons of polarity words or example sentences, feel free to make a pull request.
 
 ## Technical
-Sentimental uses Logistic Regression on a ff-idf matrix of n-grams.
+Sentimental uses [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) on a [tf-idf matrix](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) of [n-grams](https://en.wikipedia.org/wiki/N-gram). Then the model is evaluated using [k-fold crossvalidation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation).
 
 ## Contributions
 Please feel free to make pull requests, especially to add more training data.
