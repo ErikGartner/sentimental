@@ -9,7 +9,6 @@
 # Copyright (c) 2016, Erik Gärtner <erik@gartner.io>
 import os
 
-from version import __version__  # NOQA
 from sentimental.sentimental import Sentimental
 from sentimental.example_extractor import ExampleExtractor
 
